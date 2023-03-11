@@ -1,0 +1,45 @@
+{
+  "Terminals": {
+    "IP": "",
+    "InPort": [
+      "13001",
+      "13002"
+    ],
+    "OutPort": [
+      "12345",
+      "12346"
+    ]
+  },
+  "Players": [
+    {
+      "Id": "ec41b30b-aaff-4161-82d5-d137fddd9606",
+      "LeftHand": false,
+      "Obstacles": [
+	    {
+          "Id": "ba298f64-3a25-40c0-8885-3670a84f02b1",
+          "Position": {
+            "x": 1.0,
+            "y": 2.0,
+            "z": 23.0
+          },
+          "Duration": 1
+        },
+	  ]
+    },
+    {
+      "Id": "10e981b5-34e9-4ec9-9989-660b08f849da",
+      "LeftHand": true,
+      "Obstacles": [
+		{
+          "Id": "7b1933d9-918b-4efb-8acd-ccb2c4e736f9",
+          "Position": {
+            "X": 2.0,
+            "Y": 3.0,
+            "Z": 24.0
+          },
+          "Duration": 1
+        }
+	  ]
+    }
+  ]
+}
