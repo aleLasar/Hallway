@@ -96,7 +96,7 @@ class Program
 
     private void SetPlayer(string[] parameter)
     {
-        if (parameter.Length == 3)
+        if (parameter.Length == 4)
         {
             try
             {
@@ -145,7 +145,7 @@ class Program
                 int duration = Convert.ToInt32(parameter[4]);
                 float x = float.Parse(parameter[1]);
                 float y = float.Parse(parameter[2]);
-                float z = float.Parse(parameter[3]) + 20;
+                float z = float.Parse(parameter[3]);
                 Vector3 position = new Vector3(x, y, z);
 
                 var result = _Service.AddObstacle(playerId, position, duration);

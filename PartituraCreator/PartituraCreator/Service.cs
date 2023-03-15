@@ -29,6 +29,9 @@ public class Service
     {
         try
         {
+            foreach(var player in _Score.Players)
+                player.Obstacles = player.Obstacles.OrderBy(x => x.Position.z).ToList();
+
             string jsonString = JsonConvert.SerializeObject(_Score, Formatting.Indented);
             path += "\\Partitura.json";
             await File.WriteAllTextAsync(path, jsonString);
@@ -126,7 +129,7 @@ public class Service
         if (player == null)
             throw new Exception("Player not found");
 
-        pos.Limit();
+        pos = pos.Limit();
 
         Obstacle obstacle = new()
         {
