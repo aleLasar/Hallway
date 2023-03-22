@@ -341,6 +341,54 @@ class Program
         }
     }
 
+    private void Random()
+    {
+        Console.WriteLine("Enter in RANDOM modde");
+        Console.WriteLine("\t Type 'new to add new player");
+        Console.WriteLine("\t Type 'exit' to exit from RANDOM mode");
+
+        Random rnd = new Random();
+
+        try
+        {       
+            bool endApp = false;
+            while (!endApp)
+            {
+                string cmd = Console.ReadLine();
+                if (cmd == "exit") 
+                    return;
+                else if (cmd == "new")
+                {
+                    Console.WriteLine("New player. Insert {bool: lefthand} {string: inPort} {string: outPort}");
+                    string[] input = Console.ReadLine().Split(" ");
+                    var playerId = AddPlayer(input);
+
+                    Console.WriteLine("Insert number of obstacle ");
+                    input = Console.ReadLine().Split(" ");
+                    if (input.Length > 1)
+                        throw new Exception("Invalid number of command");
+                    int number = Convert.ToInt32(input[0]);
+
+                    int distance = 0;
+                    for(int i=0; i<number; i++)
+                    {
+                        Vector3 pos = new Vector3(rnd.Next(10), rnd.Next(10), distance);
+                        _Service.AddObstacle(playerId, pos, rnd.Next(1,20));
+                        distance += rnd.Next(3, 15);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid command");
+                }
+            }
+        }
+        catch
+        {
+            Console.WriteLine("Invalid command");
+        }
+    }
+
 
     private IDictionary<string, string> GetCommand()
     {
@@ -349,6 +397,7 @@ class Program
         commands.Add("print {string: path}", "Create a configuration file for Hallway in JSON format");
         commands.Add("ip {string: ip}", "Set Ip address to forward messages");        
         commands.Add("add", "Add player and his obstacles");
+        commands.Add("random", "Add player and his obstacles in random way");
         commands.Add("add-player {bool: lefthand} {string: inPort} {string: outPort}", "Add new player");
         commands.Add("get-player {guid: id}", "Get player");
         commands.Add("get-players", "Get all players");
@@ -417,6 +466,10 @@ class Program
 
                 case "add":
                     program.Add();
+                    break;
+
+                case "random":
+                    program.Random();
                     break;
 
                 case "print":

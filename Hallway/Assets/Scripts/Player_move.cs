@@ -6,7 +6,7 @@ public class Player_move : MonoBehaviour
 {
     public OSC osc;
     public float _FarwordSpeed;
-    public Material DefualtMaterial;
+    public Material DefaultMaterial;
     public Material ColliderMaterial;
     public Color LightDefaultColor;
     public Color LightColliderColor;
@@ -70,7 +70,7 @@ public class Player_move : MonoBehaviour
                 Helper.PlayerScores[key]++;
 
             otherObject.GetComponent<Renderer>().material = ColliderMaterial;
-            otherObject.GetComponentInChildren<Light>().color = LightDefaultColor;
+            otherObject.GetComponentInChildren<Light>().color = LightColliderColor;
             otherObject.GetComponentInChildren<Light>().intensity = 100f;
         }
         
@@ -90,6 +90,21 @@ public class Player_move : MonoBehaviour
             message.values.Add(Scale(_Recived_x, -30, 30, 0, 1));
             message.values.Add(Scale(_Recived_y, -30, 30, 0, 1));
             osc.Send(message);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject otherObject = other.gameObject;
+
+        var splittedName = otherObject.name.Split('_');
+        string key = splittedName.Last();
+        if (key == name.Split('_').Last())
+        {
+
+            otherObject.GetComponent<Renderer>().material = DefaultMaterial;
+            otherObject.GetComponentInChildren<Light>().color = LightDefaultColor;
+            otherObject.GetComponentInChildren<Light>().intensity = 20f;
         }
     }
 

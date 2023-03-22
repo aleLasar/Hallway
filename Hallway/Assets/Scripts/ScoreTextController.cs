@@ -23,6 +23,8 @@ public class ScoreTextController : MonoBehaviour
 
         if (Helper.PlayerScores.Keys.Count == 0)
             _Scores.Add("Nobody won");
+        else
+            Helper.PlayerScores.Clear();
     }
 
     // Start is called before the first frame update

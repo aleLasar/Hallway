@@ -143,9 +143,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4110}
     - Class: 114
-      Script: {instanceID: 17738}
+      Script: {instanceID: 25456}
     - Class: 114
-      Script: {instanceID: 17740}
+      Script: {instanceID: 25458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -433,7 +433,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: afd7fa692f1a5015013e1b68a54b6642
+      Hash: 7b19e03eb5988538b13d9d6c779f8ec9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_move

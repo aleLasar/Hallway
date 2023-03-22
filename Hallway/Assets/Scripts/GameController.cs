@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     {
         score = Read_config.GetScore();
 
-        _MaxLenght = score.Players.SelectMany(x => x.Obstacles).Max(x => x.Position.z) + 15;
+        _MaxLenght = score.Players.SelectMany(x => x.Obstacles).Max(x => x.Position.z) + 5;
 
         for (int i=0; i < numberOfWall; i++)
         {
@@ -188,7 +188,7 @@ public class GameController : MonoBehaviour
             newObjt.GetComponent<Renderer>().material = Materials_players[i];
             newObjt.GetComponentInChildren<Light>().color = LightsColor[i];
 
-            player_move.DefualtMaterial = Materials_obstacle[i];
+            player_move.DefaultMaterial = Materials_obstacle[i];
             player_move.ColliderMaterial = _ColliderMaterial;
             player_move.LightDefaultColor = LightsColor[i];
             player_move.LightColliderColor = ColliderLightColor;

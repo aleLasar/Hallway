@@ -54,6 +54,7 @@ public class Read_config
 
         try
         {
+            score = null;
             score = JsonConvert.DeserializeObject<Score>(json);
             if (!VerifyScore())
                 throw new Exception("Invalid score");
