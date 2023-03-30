@@ -10,3 +10,5 @@ From these considerations this thesis work was born, which aims to deepen the us
 The thesis work is developed in two main parts: 
 1. A new concept of score which uses concepts and dynamics from the world of videogames to codify the movements of the hands of the performers.
 2. An example of how this score can be used to create musical compositions by presenting its possible sonorization.
+ 
+![hallway](https://user-images.githubusercontent.com/44291603/228924326-5dea403f-e869-455f-b5ae-9983314e8b41.jpg)
