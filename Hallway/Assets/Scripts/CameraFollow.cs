@@ -9,9 +9,10 @@ public class CameraFollow : MonoBehaviour
     public GameController gameController;
     public Vector3 offset;
     public float smoothTime = 0.5f;
-    public float minZoom = 10f;
-    public float maxZoom = 30f;
-    public float zoomLimiter = 50f;
+
+    private float minZoom = 20f;
+    private float maxZoom = 50f;
+    private float zoomLimiter = 12f;
 
     private List<GameObject> players;
     private Vector3 velocity;
@@ -67,13 +68,19 @@ public class CameraFollow : MonoBehaviour
 
     private void Zoom()
     {
-        float zoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter );
-        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, zoom, Time.deltaTime);
+        float maxLenght = GetGreatestDistance();
+        float clamp = maxLenght / zoomLimiter;
+
+        float zoom = Mathf.Lerp(minZoom, maxZoom, clamp);
+
+        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, zoom, Time.deltaTime*1.5f);
     }
 
     private void Move()
     {
         Vector3 center = GetCenterPoint();
+        if (center.y > 6)
+            center = new Vector3(center.x, 7.0f, center.z);
         center += offset;
         transform.position = Vector3.SmoothDamp(transform.position, center, ref velocity, smoothTime);
 
@@ -98,8 +105,11 @@ public class CameraFollow : MonoBehaviour
         foreach (var player in players)
             bounds.Encapsulate(player.transform.position);
 
-        return bounds.size.x;
+        float distance = Mathf.Sqrt(Mathf.Pow(bounds.size.x, 2) + Mathf.Pow(bounds.size.y, 2));
+
+        return distance;
     }
+
     private Vector3 GetCenterPoint()
     {
         if (players.Count == 1)

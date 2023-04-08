@@ -2,7 +2,7 @@
     "Terminals": {
         "IP": "127.0.0.1",
         "InPort": [
-            "13003"
+            "13004"
         ],
         "OutPort": [
             "12345"
@@ -11,7 +11,7 @@
     "Players": [
         {
             "Id": "c089a031-8c4b-4a64-8415-a55b3ef504fa",
-			"LeftHand":true,
+			"LeftHand":false,
             "Obstacles": [
                 {
                     "Id": "80fea204-97af-49cf-827a-9509adfad044",

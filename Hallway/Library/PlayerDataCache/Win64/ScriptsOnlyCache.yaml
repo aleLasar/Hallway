@@ -143,9 +143,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4110}
     - Class: 114
-      Script: {instanceID: 25456}
+      Script: {instanceID: 25432}
     - Class: 114
-      Script: {instanceID: 25458}
+      Script: {instanceID: 25434}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -901,7 +901,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 610b0be3f76c7eceefe068dd47dc36fe
+      Hash: 48b11918e17a319443f7ffff3dc3a867
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraFollow
