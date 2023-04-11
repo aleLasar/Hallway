@@ -352,6 +352,7 @@ class Program
         try
         {       
             bool endApp = false;
+            int distance = 0;
             while (!endApp)
             {
                 string cmd = Console.ReadLine();
@@ -369,13 +370,14 @@ class Program
                         throw new Exception("Invalid number of command");
                     int number = Convert.ToInt32(input[0]);
 
-                    int distance = 0;
                     for(int i=0; i<number; i++)
                     {
                         Vector3 pos = new Vector3(rnd.Next(10), rnd.Next(10), distance);
-                        _Service.AddObstacle(playerId, pos, rnd.Next(1,20));
-                        distance += rnd.Next(3, 15);
+                        int lenght = rnd.Next(1, 20);
+                        _Service.AddObstacle(playerId, pos, lenght);
+                        distance += lenght + rnd.Next(3, 15);
                     }
+                    distance = rnd.Next(0, 20);
                 }
                 else
                 {

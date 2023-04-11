@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -87,8 +88,10 @@ public class Player_move : MonoBehaviour
             OscMessage message = new OscMessage();
             message.address = "/enter";
 
-            message.values.Add(Scale(_Recived_x, -30, 30, 0, 1));
-            message.values.Add(Scale(_Recived_y, -30, 30, 0, 1));
+            var values = new[] { _Recived_x, _Recived_y };
+
+            message.values.Add(Scale(values[0], -30, 30, 0, 1));
+            message.values.Add(Scale(values[1], -30, 30, 0, 1));
             osc.Send(message);
         }
     }
