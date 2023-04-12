@@ -17,7 +17,7 @@ public class ScoreTextController : MonoBehaviour
         int i = 1;
         foreach(string key in Helper.PlayerScores.Keys)
         {
-            _Scores.Add($"Play {i}: {Helper.PlayerScores[key]}");
+            _Scores.Add($"Player {i}: {Helper.PlayerScores[key]}");
             i++;
         }
 
